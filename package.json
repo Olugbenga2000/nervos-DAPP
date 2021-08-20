@@ -1,0 +1,22 @@
+{
+  "name": "decentralized-exchange",
+  "version": "1.0.0",
+  "description": "Decentralized exchange for ERC-20 tokens",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.2.0",
+    "@openzeppelin/test-helpers": "^0.5.11",
+    "@polyjuice-provider/web3": "0.0.1-rc7",
+    "create-react-app": "^4.0.3",
+    "nervos-godwoken-integration": "0.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "truffle test"
+  },
+  "author": "Olugbenga Ayoola",
+  "license": "ISC"
+}
