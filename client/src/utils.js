@@ -1,17 +1,10 @@
 import Web3 from "web3";
-import ERC20ABI from './ERC20ABI.json'
 import BATABI from './contract/Bat.json'
 import DAIABI from './contract/DAI.json'
 import DEX from './contract/DEX.json'
 import { PolyjuiceHttpProvider } from '@polyjuice-provider/web3';
 import { CONFIG } from './config';
 import {DEFAULT_SEND_OPTIONS} from "./high gas"
-const godwokenRpcUrl = CONFIG.WEB3_PROVIDER_URL;
-const providerConfig = {
-    rollupTypeHash: CONFIG.ROLLUP_TYPE_HASH,
-    ethAccountLockCodeHash: CONFIG.ETH_ACCOUNT_LOCK_CODE_HASH,
-    web3Url: godwokenRpcUrl
-};
 
 const getWeb3 = async() => {
       if (window.ethereum) {

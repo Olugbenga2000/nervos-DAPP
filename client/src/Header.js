@@ -26,8 +26,8 @@ return(
             <h3 className = "header-title">
                 Your <span className = "contract-address"> ETH address : <span className="address">
                     {user.accounts[0]}</span><br/>
-                    Your Polyjuice address : <span className="address">
-                    0xf2bdf955b7828b63b94bdc58df3635718aeef469</span>
+                    {/* Your Polyjuice address : <span className="address">
+                    0xf2bdf955b7828b63b94bdc58df3635718aeef469</span> */}
                     <br/>
                      Nervos layer2 balance : <span className="address">
                     {balance} CKB</span><br/>

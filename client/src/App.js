@@ -70,9 +70,9 @@ function App({web3,contracts,accounts}) {
   const deposit = async amount => {
     await contracts[user.selectedToken.ticker].methods.approve(
       contracts.dex.options.address,amount
-    ).send({...DEFAULT_SEND_OPTIONS,from : user.accounts[0]})
+    ).send({from : user.accounts[0],...DEFAULT_SEND_OPTIONS})
     await contracts.dex.methods.deposit
-    (amount, web3.utils.fromAscii(user.selectedToken.ticker)).send({ ...DEFAULT_SEND_OPTIONS,from : user.accounts[0]})
+    (amount, web3.utils.fromAscii(user.selectedToken.ticker)).send({from : user.accounts[0],...DEFAULT_SEND_OPTIONS})
     const balances = await getBalances(user.accounts[0],user.selectedToken)
     setUser(user => ({...user,balances}))
   }
