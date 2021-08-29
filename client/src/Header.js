@@ -6,7 +6,7 @@ function Header({
     tokens,
     contracts,
     selectToken,
-    balance
+    gwoken
 }){
 return(
     <header className = "card">
@@ -26,11 +26,11 @@ return(
             <h3 className = "header-title">
                 Your <span className = "contract-address"> ETH address : <span className="address">
                     {user.accounts[0]}</span><br/>
-                    {/* Your Polyjuice address : <span className="address">
-                    0xf2bdf955b7828b63b94bdc58df3635718aeef469</span> */}
+                    Your Polyjuice address : <span className="address">
+                    {gwoken.address}</span>
                     <br/>
                      Nervos layer2 balance : <span className="address">
-                    {balance} CKB</span><br/>
+                    {gwoken.balance} CKB</span><br/>
                      Deployed contract address : <span className="address">
                     {contracts.dex.options.address}</span>
                     <br/>

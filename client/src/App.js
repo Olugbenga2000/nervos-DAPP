@@ -6,6 +6,9 @@ import AllOrders from "./AllOrders";
 import MyOrders from "./MyOrders";
 import AllTrades from "./AllTrades";
 import {DEFAULT_SEND_OPTIONS} from "./high gas"
+import { AddressTranslator } from 'nervos-godwoken-integration'
+const addressTranslator = new AddressTranslator();
+
 const SIDE = {
   BUY : 0,
   SELL : 1
@@ -24,7 +27,7 @@ function App({web3,contracts,accounts}) {
     buy : [],
     sell : []
   })
-   const [balance, setbalance] = useState(undefined)
+   const [gwoken, setbalance] = useState({balance: 0, address: ''})
   const [trades, setTrades] = useState([])
   const [listener, setListener] = useState(undefined)
   const getBalances = async (account, token) => {
@@ -114,7 +117,8 @@ function App({web3,contracts,accounts}) {
       const [balances,orders] = await Promise.all([getBalances(accounts[0],tokens[0]),
                                   getOrders(tokens[0])])
       const nerbalance = (await web3.eth.getBalance(accounts[0]))/100000000
-      setbalance(nerbalance)
+      const polyjuiceAddress = addressTranslator.ethAddressToGodwokenShortAddress(accounts[0])
+      setbalance({balance:nerbalance, address: polyjuiceAddress})
       setOrders(orders)
       listenToTrades(tokens[0])
       setTokens(tokens)
@@ -141,7 +145,7 @@ function App({web3,contracts,accounts}) {
       tokens = {tokens}
       contracts = {contracts}
       selectToken = {selectToken}
-      balance = {balance}/>
+      gwoken = {gwoken}/>
       <main className = 'container-fluid'>
         <div className = 'row'>
           <div className = 'col-sm-4 first-col'>
